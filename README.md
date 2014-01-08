@@ -23,25 +23,25 @@ grunt.loadNpmTasks('grunt-include-resources');
 
 ### Options
 
-#### options.prefix
+#### prefix
 Type: `String`
 Default value: `'<!-- include: '`
 
 Comment prefix for the include directive.
 
-#### options.suffix
+#### suffix
 Type: `String`
 Default value: `' -->'`
 
 Comment suffix for the include directive.
 
-#### options.css
+#### css
 Type: `Object`
 Default value: `{}`
 
 Identifier to file path mapping for JavaScript files to include.
 
-#### options.js
+#### js
 Type: `Object`
 Default value: `{}`
 
@@ -102,6 +102,17 @@ index.html:
 ```html
 <!DOCTYPE html>
 <html>
+  <head>
+
+    <!-- include: { type: "css", id: "reset" } -->
+    <!-- include: { type: "css", id: "style" } -->
+
+  </head>
+  <body>
+
+    <!-- include: { type: "js", id: "loader" } -->
+
+  </body>
 </html>
 ```
 
