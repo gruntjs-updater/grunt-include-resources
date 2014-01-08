@@ -1,6 +1,6 @@
 {
   "name": "grunt-include-resources",
-  "description": "Includes external resources like CSS or JavaScript into HTML files.",
+  "description": "Include external resources like CSS or JavaScript into HTML files.",
   "version": "0.1.0",
   "homepage": "https://github.com/dsuckau/grunt-include-resources",
   "author": {
