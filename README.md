@@ -140,20 +140,38 @@ grunt.initConfig({
         'use strict';
 
         var Loader = {
-
           init: function () {
             // ...
-          },
-
-          injectScriptTag: function () {
-            // ...
           }
-
         };
 
         Loader.init();
 
       }());
+    </script>
+
+  </body>
+</html>
+```
+
+**dist/index.html:** (after execution)
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>Test</title>
+
+    <style type="text/css">
+      body{background-color:#000;text-align:center}
+    </style>
+
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      (function(){var a={init:function(){}};a.init()}());
     </script>
 
   </body>
