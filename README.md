@@ -48,6 +48,40 @@ Default value: `{}`
 Identifier to file path mapping for CSS files to include.
 
 
+
+## Usage examples
+
+### Basic include
+
+```js
+grunt.initConfig({
+
+  include_resources: {
+
+    prod: {
+
+      files: {
+        'prod/index.html': 'index.html'
+      },
+
+      options: {
+        css: {
+          reset: 'reset.css',
+          style: 'style.css'
+        },
+        js: {
+          loader: 'loader.js'
+        }
+      }
+
+    }
+
+  }
+
+});
+```
+
+
 ## Release History
 
  * 2014-01-08   v0.1.1   Added initial documentation.
