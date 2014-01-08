@@ -53,7 +53,7 @@ Identifier to file path mapping for CSS files to include.
 
 ### Basic include
 
-Gruntfile:
+**Gruntfile:**
 
 ```js
 grunt.initConfig({
@@ -95,7 +95,7 @@ grunt.initConfig({
 });
 ```
 
-index.html:
+**index.html:**
 
 ```html
 <!DOCTYPE html>
@@ -110,6 +110,35 @@ index.html:
   <body>
 
     <!-- include: { type: "js", id: "loader" } -->
+
+  </body>
+</html>
+```
+
+**prod/index.html:** (after execution)
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>Test</title>
+
+    <style type="text/css">
+      body {
+        background-color: #000;
+        text-align: center;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      (function () {
+        'use strict';
+      }());
+    </script>
 
   </body>
 </html>
