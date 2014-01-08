@@ -136,7 +136,23 @@ grunt.initConfig({
 
     <script type="text/javascript">
       (function () {
+
         'use strict';
+
+        var Loader = {
+
+          init: function () {
+            // ...
+          },
+
+          injectScriptTag: function () {
+            // ...
+          }
+
+        };
+
+        Loader.init();
+
       }());
     </script>
 
