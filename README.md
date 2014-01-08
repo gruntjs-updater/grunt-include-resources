@@ -53,17 +53,18 @@ Identifier to file path mapping for CSS files to include.
 
 ### Basic include
 
+Gruntfile:
+
 ```js
 grunt.initConfig({
 
   include_resources: {
 
+    // Production build
     prod: {
-
       files: {
         'prod/index.html': 'index.html'
       },
-
       options: {
         css: {
           reset: 'reset.css',
@@ -73,12 +74,35 @@ grunt.initConfig({
           loader: 'loader.js'
         }
       }
+    },
 
+    // Distribution build
+    dist: {
+      files: {
+        'dist/index.html': 'index.html'
+      },
+      options: {
+        css: {
+          reset: 'reset.min.css',
+          style: 'style.min.css'
+        },
+        js: {
+          loader: 'loader.min.js'
+        }
+      }
     }
 
   }
 
 });
+```
+
+index.html:
+
+```html
+<!DOCTYPE html>
+<html>
+</html>
 ```
 
 
