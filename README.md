@@ -60,14 +60,13 @@ grunt.initConfig({
 
   include_resources: {
 
-    // Production build
+    // Production build (use uncompressed resources)
     prod: {
       files: {
         'prod/index.html': 'index.html'
       },
       options: {
         css: {
-          reset: 'reset.css',
           style: 'style.css'
         },
         js: {
@@ -76,14 +75,13 @@ grunt.initConfig({
       }
     },
 
-    // Distribution build
+    // Distribution build (use minified resources)
     dist: {
       files: {
         'dist/index.html': 'index.html'
       },
       options: {
         css: {
-          reset: 'reset.min.css',
           style: 'style.min.css'
         },
         js: {
@@ -104,7 +102,8 @@ index.html:
 <html>
   <head>
 
-    <!-- include: { type: "css", id: "reset" } -->
+    <title>Test</title>
+
     <!-- include: { type: "css", id: "style" } -->
 
   </head>
