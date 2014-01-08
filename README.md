@@ -27,13 +27,28 @@ grunt.loadNpmTasks('grunt-include-resources');
 Type: `String`
 Default value: `'<!-- include: '`
 
-Comment prefix for the include directive
+Comment prefix for the include directive.
 
 #### options.suffix
 Type: `String`
 Default value: `' -->'`
 
-Comment suffix for the include directive
+Comment suffix for the include directive.
+
+#### options.css
+Type: `Object`
+Default value: `{}`
+
+Identifier to file path mapping for JavaScript files to include.
+
+#### options.js
+Type: `Object`
+Default value: `{}`
+
+Identifier to file path mapping for CSS files to include.
 
 
 ## Release History
+
+ * 2014-01-08   v0.1.1   Added initial documentation.
+ * 2014-01-08   v0.1.0   Work in progress, not yet officially released.
