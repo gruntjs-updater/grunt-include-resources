@@ -13,7 +13,15 @@ module.exports = function (grunt) {
     grunt.registerMultiTask('include_resources', 'Include resources into HTML files.', function() {
 
         var options = this.options({
-        });
+                prefix: '<!-- include: ',
+                suffix: ' -->'
+            }),
+            pattern = new RegExp(
+                options.prefix +
+                '' +
+                options.suffix,
+                'g'
+            );
 
     });
 
