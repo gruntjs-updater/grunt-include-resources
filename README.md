@@ -181,5 +181,6 @@ grunt.initConfig({
 
 ## Release History
 
+ * 2014-01-16   v0.1.2   use a function as second param in src.replace() to avoid replacing of potential back references
  * 2014-01-08   v0.1.1   Added initial documentation.
  * 2014-01-08   v0.1.0   Work in progress, not yet officially released.
