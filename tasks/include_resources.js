@@ -98,7 +98,9 @@ module.exports = function (grunt) {
                 }
 
                 // Replace include directive
-                src = src.replace(include.directive, data);
+                src = src.replace(include.directive, function () {
+                    return data;
+                });
 
             });
 
