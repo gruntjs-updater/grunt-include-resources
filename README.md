@@ -66,8 +66,7 @@ Default value: `true`
 
 Embed the content of the resource file? Otherwise it will just be referenced.
 If you use type "css" and set "embedded" to "true", the content of the CSS file 
-will be included within a "<style>" tag. But if you set "embedded" to "false", 
-the CSS file will just be referenced by a "<link>" tag.
+
 
 
 
