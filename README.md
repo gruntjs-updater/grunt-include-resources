@@ -47,6 +47,29 @@ Default value: `{}`
 
 Identifier to file path mapping for CSS files to include.
 
+### Directive options
+
+#### type
+Type: `String`
+Default value: `css`
+
+Type of the resource file.
+
+#### id
+Type: `String`
+
+Identifier of the resource file (has to be referenced in the task configuration).
+
+#### embedded
+Type: `Boolean`
+Default value: `true`
+
+Embed the content of the resource file? Otherwise it will just be referenced.
+If you use type "css" and set "embedded" to "true", the content of the CSS file 
+will be included within a "<style>" tag. But if you set "embedded" to "false", 
+the CSS file will just be referenced by a "<link>" tag.
+
+
 
 
 ## Usage examples
@@ -124,7 +147,7 @@ grunt.initConfig({
 
     <title>Test</title>
 
-    <style type="text/css">
+    <style>
       body {
         background-color: #000;
         text-align: center;
@@ -134,7 +157,7 @@ grunt.initConfig({
   </head>
   <body>
 
-    <script type="text/javascript">
+    <script>
       (function () {
 
         'use strict';
@@ -163,24 +186,17 @@ grunt.initConfig({
 
     <title>Test</title>
 
-    <style type="text/css">
+    <style>
       body{background-color:#000;text-align:center}
     </style>
 
   </head>
   <body>
 
-    <script type="text/javascript">
+    <script>
       (function(){var a={init:function(){}};a.init()}());
     </script>
 
   </body>
 </html>
 ```
-
-
-## Release History
-
- * 2014-01-16   v0.1.2   use a function as second param in src.replace() to avoid replacing of potential back references
- * 2014-01-08   v0.1.1   Added initial documentation.
- * 2014-01-08   v0.1.0   Work in progress, not yet officially released.
