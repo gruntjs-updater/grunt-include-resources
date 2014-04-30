@@ -26,7 +26,8 @@ module.exports = function (grunt) {
                 '({[\\s\\S]*?})' +
                 options.suffix,
                 'g'
-            );
+            ),
+            linefeed = grunt.util.normalizelf(grunt.util.linefeed);
 
         this.files.forEach(function (file) {
 
@@ -39,7 +40,7 @@ module.exports = function (grunt) {
                     return true;
                 })
                 .map(grunt.file.read)
-                .join(grunt.util.normalizelf(grunt.util.linefeed)),
+                .join(linefeed),
                 includes = [],
                 match;
 
@@ -55,41 +56,63 @@ module.exports = function (grunt) {
 
                 var id = include.config.id,
                     type = include.config.type,
+                    embedded = true,
                     data = '',
                     filepath,
                     content;
+
+                if (typeof include.config.embedded !== 'undefined') {
+                    embedded = include.config.embedded;
+                }
 
                 // Identifier found in options
                 if (id in options[type]) {
 
                     filepath = options[type][id];
 
-                    // Resource file found
-                    if (grunt.file.exists(filepath)) {
+                    // Embed content of resource file
+                    if (embedded) {
 
-                        // Read resource file content
-                        content = grunt.file.read(filepath);
+                        // Resource file found
+                        if (grunt.file.exists(filepath)) {
+
+                            // Read resource file content
+                            content = grunt.file.read(filepath);
+
+                            // JavaScript
+                            if (type === 'js') {
+                                data = [
+                                    '<script>',
+                                    content,
+                                    '</script>'
+                                ].join(linefeed);
+
+                            // CSS
+                            } else {
+                                data = [
+                                    '<style>',
+                                    content,
+                                    '</style>'
+                                ].join(linefeed);
+                            }
+
+                        // Resource file not found
+                        } else {
+                            grunt.log.warn('Resource file "' + filepath + '" not found.');
+                        }
+
+                    // Do not embed content of resource file, just reference it
+                    } else {
 
                         // JavaScript
                         if (type === 'js') {
-                            data = [
-                                '<script type="text/javascript">',
-                                content,
-                                '</script>'
-                            ].join(grunt.util.normalizelf(grunt.util.linefeed));
+                            data = '<script src="' + filepath + '"></script>';
 
                         // CSS
                         } else {
-                            data = [
-                                '<style type="text/css">',
-                                content,
-                                '</style>'
-                            ].join(grunt.util.normalizelf(grunt.util.linefeed));
+                            data = '<link rel="stylesheet" href="' + filepath + '">';
                         }
 
-                    // Resource file not found
-                    } else {
-                        grunt.log.warn('Resource file "' + filepath + '" not found.');
                     }
 
                 // Identifier not found in options
